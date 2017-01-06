@@ -1,2 +1,6 @@
-Todo app in AngularJS
+#Todo app
 
+
+## Dependencies
+
+`npm install --save`
