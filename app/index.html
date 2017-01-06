@@ -17,13 +17,13 @@
                 <h1 title="TodoList">TodoList</h1>
             </header>
             <div>
-                <form action="#" id="todo-form">
+                <form action="#" id="todo-form" ng-submit="addTodo()">
                     {{title}}
                     <input type="text"
                            placeholder="new task"
                            autofocus
                            autocomplete="off"
-                           ng-model="remaining"
+                           ng-model="newTodo"
                         >
                 </form>
                 <ul id="todo-list">
@@ -31,14 +31,14 @@
                         <div class="view">
                             <input type="checkbox" class="toggle" ng-model="todo.completed">
                             <label>{{todo.name}}</label>
-                            <button class="destroy" ng-click="deleteTask()">X</button>
+                            <button class="destroy" ng-click="deleteTask($index)">X</button>
                         </div>
                     </li>
                 </ul>
             </div>
             <footer>
             <span class="todo-count">
-                <strong>{{remaining}}</strong> task left
+                <strong>{{newTodo}}</strong>
             </span>
             </footer>
         </section>
