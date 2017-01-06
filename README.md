@@ -1,5 +1,4 @@
-#Todo app
-
+#Todo app in Angularjs
 
 ## Dependencies
 

@@ -9,4 +9,7 @@ header {
   width: 100%;
   background: #f4f4f4; }
 
+.completed {
+  text-decoration: line-through; }
+
 /*# sourceMappingURL=app.css.map */

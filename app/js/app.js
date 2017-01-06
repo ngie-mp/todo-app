@@ -10,7 +10,11 @@ app.controller('todoCtrl', function ($scope) {
         },
         {
             name : 'Task complete',
-            completed : false
+            completed : true
         }
     ]
+
+    $scope.deleteTask = function(index) {
+        $scope.todos.splice(index, 1);
+    }
 });

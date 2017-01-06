@@ -31,7 +31,7 @@
                         <div class="view">
                             <input type="checkbox" class="toggle" ng-model="todo.completed">
                             <label>{{todo.name}}</label>
-                            <button class="destroy">X</button>
+                            <button class="destroy" ng-click="deleteTask()">X</button>
                         </div>
                     </li>
                 </ul>
