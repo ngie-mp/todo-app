@@ -17,4 +17,12 @@ app.controller('todoCtrl', function ($scope) {
     $scope.deleteTask = function(index) {
         $scope.todos.splice(index, 1);
     }
+
+    $scope.addTodo = function() {
+        $scope.todos.push({
+            name : $scope.newTodo,
+            completed: false
+        });
+        $scope.newTodo = '';
+    }
 });
