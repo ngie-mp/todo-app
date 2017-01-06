@@ -1,0 +1,12 @@
+header {
+  background: #222222; }
+  header h1 {
+    text-transform: uppercase;
+    text-align: center;
+    color: #f3f3f3; }
+
+#todo-form {
+  width: 100%;
+  background: #f4f4f4; }
+
+/*# sourceMappingURL=app.css.map */
