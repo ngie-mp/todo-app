@@ -15,6 +15,13 @@
   "author": "Angie M",
   "license": "ISC",
   "dependencies": {
+    "angular": "<1.5.8",
+    "angular-animate": "<1.5.10",
+    "angular-aria": "<1.5.10",
+    "angular-material": "^1.1.1",
     "flexboxgrid": "^6.3.1"
+  },
+  "devDependencies": {
+    "jasmine": "^2.5.2"
   }
 }
