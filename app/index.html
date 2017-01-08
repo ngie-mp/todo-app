@@ -23,9 +23,12 @@
                            placeholder="new task"
                            autofocus
                            autocomplete="off"
-                           ng-model="newTodo"
-                        >
+                           ng-model="newTodo">
                 </form>
+                <input type="checkbox"
+                       id="toggle-all"
+                       ng-model="allChecked"
+                       ng-click="checkAllTodo(allChecked)">
                 <ul id="todo-list">
                     <li ng-repeat="todo in todos" ng-class="{completed: todo.completed}">
                         <div class="view">
@@ -35,6 +38,7 @@
                         </div>
                     </li>
                 </ul>
+                <p>Task remaining :</p>{{remaining}}
             </div>
             <footer>
             <span class="todo-count">
