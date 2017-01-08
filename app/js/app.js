@@ -2,21 +2,13 @@ var app = angular.module('todoApp', []);
 
 app.controller('todoCtrl', function ($scope, filterFilter, $http){
 
-    $http.get('todo.json').success(function (data) {
-        $scope.todos = data;
+    $scope.todos = [];
+
+    $http.get('todo.json').then(function(response) {
+        $scope.todos = response.data;
     });
 
     $scope.title = 'Enter a task';
-    $scope.todos = [
-        {
-            name : 'Task incomplete',
-            completed : false
-        },
-        {
-            name : 'Task complete',
-            completed : true
-        }
-    ]
 
     $scope.$watch('todos', function() {
         $scope.remaining = filterFilter($scope.todos, {completed:false}).length;
