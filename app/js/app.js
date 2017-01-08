@@ -1,4 +1,4 @@
-var app = angular.module('todoApp', []);
+var app = angular.module('todoApp', ['ngMaterial']);
 
 
 app.controller('todoCtrl', function ($scope, filterFilter, $http, $location){
