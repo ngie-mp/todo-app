@@ -1,9 +1,10 @@
 var app = angular.module('todoApp', []);
 
-app.controller('todoCtrl', function ($scope, filterFilter, $http){
 
+app.controller('todoCtrl', function ($scope, filterFilter, $http, $location){
     $scope.todos = [];
     $scope.placeholder = "New task..";
+    $scope.statusFilter = {};
     $http.get('todo.json').then(function(response) {
         $scope.todos = response.data;
     });
@@ -14,6 +15,16 @@ app.controller('todoCtrl', function ($scope, filterFilter, $http){
         $scope.remaining = filterFilter($scope.todos, {completed:false}).length;
         $scope.allChecked = !$scope.remaining;
     }, true);
+
+    if($location.path() == ''){
+        $location.path('/');
+    }
+    $scope.location = $location;
+    $scope.$watch('location.path()', function (path) {
+       $scope.statusFilter =
+           (path == '/active') ? {completed : false} :
+           (path == '/done') ? {completed : true} : null;
+    });
 
     $scope.deleteTask = function(index) {
         $scope.todos.splice(index, 1);
