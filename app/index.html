@@ -11,16 +11,16 @@
     <title>Todo list in AngularJS</title>
 </head>
 <body ng-app="todoApp">
-    <main class="row center-lg">
-        <section ng-controller="todoCtrl" class="col-sm-10">
-            <header>
-                <h1 title="TodoList">TodoList</h1>
+    <main>
+        <section ng-controller="todoCtrl" class="row center-md">
+            <header class="col-lg-12">
+                <h1 title="TodoList">Todo List</h1>
             </header>
-            <div>
+            <div class="col-lg-12">
                 <form action="#" id="todo-form" ng-submit="addTodo()">
                     {{title}}
                     <input type="text"
-                           placeholder="new task"
+                           placeholder="{{placeholder}}"
                            autofocus
                            autocomplete="off"
                            ng-model="newTodo">
@@ -30,11 +30,16 @@
                        ng-model="allChecked"
                        ng-click="checkAllTodo(allChecked)">
                 <ul id="todo-list">
-                    <li ng-repeat="todo in todos" ng-class="{completed: todo.completed}">
+                    <li ng-repeat="todo in todos"
+                        ng-class="{completed: todo.completed, editing: todo.editing}"
+                        ng-dblclick="editTask(todo)">
                         <div class="view">
                             <input type="checkbox" class="toggle" ng-model="todo.completed">
-                            <label>{{todo.name}}</label>
+                            <p>{{todo.name}}</p>
                             <button class="destroy" ng-click="deleteTask($index)">X</button>
+                            <form action="#">
+                                <input class="editing" ng-model="todo.name">
+                            </form>
                         </div>
                     </li>
                 </ul>

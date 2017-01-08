@@ -12,4 +12,7 @@ header {
 .completed {
   text-decoration: line-through; }
 
+.editing {
+  display: none; }
+
 /*# sourceMappingURL=app.css.map */

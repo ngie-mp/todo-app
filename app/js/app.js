@@ -3,7 +3,7 @@ var app = angular.module('todoApp', []);
 app.controller('todoCtrl', function ($scope, filterFilter, $http){
 
     $scope.todos = [];
-
+    $scope.placeholder = "New task..";
     $http.get('todo.json').then(function(response) {
         $scope.todos = response.data;
     });
@@ -25,6 +25,10 @@ app.controller('todoCtrl', function ($scope, filterFilter, $http){
             completed: false
         });
         $scope.newTodo = '';
+    }
+
+    $scope.editTask = function(todo){
+        todo.editing = false;
     }
 
     $scope.checkAllTodo = function(allChecked) {
