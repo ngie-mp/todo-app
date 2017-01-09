@@ -20,45 +20,44 @@
                 <h1 title="TodoList">Todo List</h1>
             </header>
             <div>
-                <form action="#" id="todo-form" ng-submit="addTodo()">
-                    <h2 title="{{title}}">{{title}}</h2>
-                    <md-input-container class="md-block" flex-gt-sm>
+                <h2 title="{{title}}">{{title}}</h2>
+                <form action="#" id="todo-form" ng-submit="addTodo()"  layout="row">
+                    <md-input-container class="md-block" flex="100">
                         <label>New task</label>
                         <input autocomplete="off"
                                autofocus
                                ng-model="newTodo">
                     </md-input-container>
+                    <md-button class="md-fab md-primary" type='submit'>
+                    </md-button>
                 </form>
-                <input type="checkbox"
-                       ng-model="allChecked"
-                       ng-click="checkAllTodo(allChecked)">
-                <div id="todo-list">
-                    <md-list-item ng-repeat="todo in todos  | filter:statusFilter | orderBy:'completed'"
-                                    ng-class="{completed: todo.completed}" >
-                        <div class="view-list" layout="row">
-                            <p flex="75">{{todo.name}}</p>
-                            <div flex="25">
-                                <md-checkbox class="toggle" ng-model="todo.completed" ></md-checkbox>
-                                <button class="destroy" ng-click="deleteTask($index)" >X</button>
-                            </div>
-                            <form action="#">
-                                <input class="editing" ng-model="todo.name">
-                            </form>
-                        </div>
-                    </md-list-item>
-                </div>
-                <p>Task remaining :</p>{{remaining}}
             </div>
+            <input type="checkbox"
+                   ng-model="allChecked"
+                   ng-click="checkAllTodo(allChecked)">
+            <div id="todo-list">
+                <md-list-item ng-repeat="todo in todos  | filter:statusFilter | orderBy:'completed'"
+                                ng-class="{completed: todo.completed}" >
+                    <div class="view-list" layout="row">
+                        <p flex="75">{{todo.name}}</p>
+                        <div flex="25">
+                            <md-checkbox class="toggle" ng-model="todo.completed" ></md-checkbox>
+                            <md-button class="destroy" ng-click="deleteTask($index)" >X</md-button>
+                        </div>
+                    </div>
+                </md-list-item>
+            </div>
+            <p>Task remaining :</p>{{remaining}}
             <footer>
                 <span class="todo-count">
                     <strong>{{newTodo}}</strong>
                 </span>
-                <ul>
-                    <li><a ng-href="#/">All</a></li>
-                    <li><a ng-href="#/active">Active</a></li>
-                    <li><a ng-href="#/done">Done</a></li>
-                </ul>
             </footer>
+            <md-nav-bar md-selected-nav-item="statusNav">
+                <md-nav-item md-nav-href="#/">All</md-nav-item>
+                <md-nav-item md-nav-href="#/active">Active</md-nav-item>
+                <md-nav-item md-nav-href="#/done">Done</md-nav-item>
+            </md-nav-bar>
         </section>
     </main>
 </body>

@@ -5,6 +5,7 @@ app.controller('todoCtrl', function ($scope, filterFilter, $http, $location){
     $scope.todos = [];
     $scope.placeholder = "New task..";
     $scope.statusFilter = {};
+    $scope.statusNav = 'All';
     $http.get('todo.json').then(function(response) {
         $scope.todos = response.data;
     });
@@ -21,9 +22,11 @@ app.controller('todoCtrl', function ($scope, filterFilter, $http, $location){
     }
     $scope.location = $location;
     $scope.$watch('location.path()', function(path) {
-       $scope.statusFilter =
-           (path == '/active') ? {completed : false} :
-           (path == '/done') ? {completed : true} : null;
+        $scope.statusFilter =
+                (path == '/') ? ($scope.todos) :
+                (path == '/active') ? {completed : false} :
+                (path == '/done') ? {completed : true} :
+                    null;
     });
 
     $scope.deleteTask = function(index) {
