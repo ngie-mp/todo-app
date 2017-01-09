@@ -43,9 +43,9 @@ app.controller('todoCtrl', function ($scope, filterFilter, $http, $location){
             name : $scope.newTodo,
             completed: false
         });
-        $scope.newTodo = '';
+        $scope.newTodo ='';
+        $scope.taskCached = localStorage.setItem('todos', JSON.stringify($scope.todos));
     }
-
     $scope.editTask = function(todo){
         todo.editing = false;
     }
@@ -55,4 +55,5 @@ app.controller('todoCtrl', function ($scope, filterFilter, $http, $location){
             todo.completed = allChecked;
         });
     }
+
 });
