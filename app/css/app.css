@@ -2,6 +2,9 @@
   margin-left: 0 !important;
   margin-right: 0 !important; }
 
+html {
+  height: auto !important; }
+
 header {
   background: #222222; }
   header h1 {
@@ -18,5 +21,28 @@ header {
 
 .editing {
   display: none; }
+
+.view-list {
+  width: 100%;
+  margin: 0 auto; }
+
+/*For the moment*/
+.one {
+  background: red; }
+
+.two {
+  background: blue; }
+
+.three {
+  background: green; }
+
+.four {
+  background: orange; }
+
+.five {
+  background: gray; }
+
+.six {
+  background: yellow; }
 
 /*# sourceMappingURL=app.css.map */
