@@ -6,11 +6,12 @@ app.controller('todoCtrl', function ($scope, filterFilter, $http, $location){
     $scope.placeholder = "New task..";
     $scope.statusFilter = {};
     $scope.statusNav = 'All';
+
     $http.get('todo.json').then(function(response) {
         $scope.todos = response.data;
     });
 
-    $scope.title = 'Enter a task';
+    $scope.title = 'Add a new task';
 
     $scope.$watch('todos', function() {
         $scope.remaining = filterFilter($scope.todos, {completed:false}).length;
@@ -21,6 +22,10 @@ app.controller('todoCtrl', function ($scope, filterFilter, $http, $location){
         $location.path('/');
     }
     $scope.location = $location;
+    $scope.reload = function () {
+        console.log('reload');
+        location.reload();
+    }
     $scope.$watch('location.path()', function(path) {
         $scope.statusFilter =
                 (path == '/') ? ($scope.todos) :
