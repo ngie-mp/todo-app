@@ -17,23 +17,36 @@
 <body ng-app="todoApp" ng-cloak>
     <main>
         <section ng-controller="todoCtrl">
-            <header>
-                <h1 title="TodoList">Todo List</h1>
-            </header>
+            <div layout="row">
+                <header flex="100">
+                    <h1 title="TodoList">Todo List</h1>
+                    <md-button id="btn-addtask" class="md-fab" type='submit'>
+                        {{remaining}}
+                    </md-button>
+                </header>
+            </div>
             <div>
                 <h2 title="{{title}}">{{title}}</h2>
                 <form action="#" id="todo-form" ng-submit="addTodo()"  layout="row">
-                    <md-input-container class="md-block" flex="100">
-                        <label>New task</label>
-                        <input autocomplete="off"
-                               autofocus
-                               ng-model="newTodo">
-                    </md-input-container>
-                    <md-button class="md-fab" type='submit'>
-                          <md-icon md-svg-src="imgs/icon.svg"></md-icon>
-                    </md-button>
+                    <div flex="95">
+                        <md-input-container class="md-block">
+                            <label>New task</label>
+                            <input autocomplete="off"
+                                   autofocus
+                                   ng-model="newTodo">
+                        </md-input-container>
+                        <span class="todo-count">
+                            <strong>{{newTodo}}</strong>
+                        </span>
+                    </div>
+                    <div flex="5">
+                        <md-button id="btn-addtask" class="md-fab" type='submit'>
+                            <md-icon md-svg-src="imgs/icon.svg"></md-icon>
+                        </md-button>
+                    </div>
                 </form>
             </div>
+            <h3>All done</h3>
             <input type="checkbox"
                    ng-model="allChecked"
                    ng-click="checkAllTodo(allChecked)">
@@ -49,16 +62,12 @@
                     </div>
                 </md-list-item>
             </div>
-            <p>Task remaining :</p>{{remaining}}
             <footer>
-                <span class="todo-count">
-                    <strong>{{newTodo}}</strong>
-                </span>
             </footer>
             <md-nav-bar md-selected-nav-item="statusNav">
-                <md-nav-item md-nav-href="#/">All</md-nav-item>
-                <md-nav-item md-nav-href="#/active">Active</md-nav-item>
-                <md-nav-item md-nav-href="#/done">Done</md-nav-item>
+                <md-nav-item md-nav-href="#/" id="all">All</md-nav-item>
+                <md-nav-item md-nav-href="#/active" id="active">Active</md-nav-item>
+                <md-nav-item md-nav-href="#/done" id="done">Done</md-nav-item>
             </md-nav-bar>
         </section>
     </main>

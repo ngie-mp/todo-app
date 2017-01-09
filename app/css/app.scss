@@ -11,10 +11,13 @@ body {
 
 header {
   background: #222222;
-  h1{
+  h1 {
     text-transform: uppercase;
     text-align: center;
     color: #f3f3f3;
+  }
+  .md-button {
+    background: red !important;
   }
 }
 
@@ -26,10 +29,9 @@ header {
 .completed {
   text-decoration: line-through;
 }
-.editing{
-  display: none;
+.remaining {
+  background-color: red;
 }
-
 .view-list {
   width: 100%;
   margin: 0 auto;

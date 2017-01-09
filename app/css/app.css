@@ -11,6 +11,8 @@ header {
     text-transform: uppercase;
     text-align: center;
     color: #f3f3f3; }
+  header .md-button {
+    background: red !important; }
 
 #todo-form {
   width: 100%;
@@ -19,8 +21,8 @@ header {
 .completed {
   text-decoration: line-through; }
 
-.editing {
-  display: none; }
+.remaining {
+  background-color: red; }
 
 .view-list {
   width: 100%;
