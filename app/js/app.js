@@ -20,10 +20,10 @@ app.controller('todoCtrl', function ($scope, filterFilter, $http, $location){
         $location.path('/');
     }
     $scope.location = $location;
-    $scope.$watch('location.path()', function (path) {
+    $scope.$watch('location.path()', function(path) {
        $scope.statusFilter =
-           filterFilter(path == '/active') ? {completed : false} :
-           filterFilter(path == '/done') ? {completed : true} : null;
+           (path == '/active') ? {completed : false} :
+           (path == '/done') ? {completed : true} : null;
     });
 
     $scope.deleteTask = function(index) {
