@@ -6,7 +6,7 @@ app.controller('todoCtrl', function ($scope, filterFilter, $http, $location){
     $scope.placeholder = "New task..";
     $scope.statusFilter = {};
     $scope.statusNav = 'All';
-
+    $scope.saved = localStorage.getItem('todos');
     $http.get('todo.json').then(function(response) {
         $scope.todos = response.data;
     });

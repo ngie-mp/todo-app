@@ -24,6 +24,12 @@ header {
 #todo-form {
   width: 100%;
   background: #f4f4f4;
+  label{
+    color: #222222;
+  }
+  .md-input{
+    border-color: #222222;
+  }
 }
 
 .completed {
